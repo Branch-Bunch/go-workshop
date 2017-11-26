@@ -1,12 +1,15 @@
 Concurrency With Go
-Gotta Go Fast
 28 Nov 2017
 
-Jacky Chiu, Kirin Rastogi
-Data Eng Intern & Security Intern, Shopify
-http://url/
-@JackyChiu @kirinrastogi
+Jacky Chiu
+Data Eng Intern, Shopify
 
-* First slide
+Kirin Rastogi
+Security Eng Intern, Shopify
 
-YAS it works
+* Areas of Use
+
+- Cloud
+- Infrastructure
+- Backend API
+- CLI tools

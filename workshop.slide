@@ -7,6 +7,8 @@ Data Eng Intern, Shopify
 Kirin Rastogi
 Security Eng Intern, Shopify
 
+* Intro To Go
+
 * Areas of Use
 
 - Cloud
@@ -16,15 +18,17 @@ Security Eng Intern, Shopify
 
 * Concurrency vs Parallelism
 
+* Concurrency vs Parallelism
+
 Concurrency:
 
-- The composition of independently executing tasks.
-- It's about structuring the problem.
+- The composition of independently executing tasks
+- It's about structuring the problem
 
 Parallelism:
 
-- The execution of tasks at the same time. 
-- It's about executing the problem.
+- The execution of tasks at the same time
+- It's about executing the problem
 
 Concurrency is not parallelism, but it does enables parallelism.
 
@@ -56,3 +60,28 @@ Sadly they are bottlenecked at the book pile and fire.
 .image images/gophercomplex3.jpg
 
 Notice how this concurrent design allowed for better parallelism.
+
+* Concurrency in Go 
+
+* Concurrency in Go 
+
+Concurrency is a first class concept in Go.
+
+Core components:
+
+- Goroutines
+- Channels
+- Select statements
+
+* Goroutines
+
+- Independent executing function
+- Not a thread, but can you can think of it as a cheap thread
+- Multiplexed into OS threads
+- Common to have thousands to hundred thousands of running
+
+Use:
+
+    go doSomethingCool()
+
+* Channels 

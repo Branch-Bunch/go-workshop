@@ -13,3 +13,16 @@ Security Eng Intern, Shopify
 - Infrastructure
 - Backend API
 - CLI tools
+
+* Concurrency vs Parallelism
+
+Concurrency:
+
+- The composition of independently executing tasks.
+- It's about structuring the problem.
+
+Parallelism:
+
+- The execution of tasks at the same time. 
+- It's about executing the problem.
+

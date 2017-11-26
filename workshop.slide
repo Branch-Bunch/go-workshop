@@ -71,7 +71,6 @@ Core components:
 
 - Goroutines
 - Channels
-- Select statements
 
 Lets explore these ideas.
 
@@ -148,4 +147,3 @@ A buffered channel is like adding a voice mail.
 
 - Someone that calls you doesn't have to wait for you to finish your call
 - You can listen to one voice mail after another at your own speed
-

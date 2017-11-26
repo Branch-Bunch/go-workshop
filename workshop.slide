@@ -121,9 +121,23 @@ Use channels to:
     // receive in goroutine 1
     result := <- resultChan
 
+Channels can be closed.
+
 * Channels
 
 Channels come in two forms. `Unbuffered` and `Buffered`.
+
+Unbuffered channels:
+
+- Sender will block until message is received
+- Used to synchronize and share data 
+
+Buffered channels:
+
+- Sender won't block, message will be queued
+- Has a set max size
+
+* Analogy
 
 You can think of a unbuffered channel like a phone call.
 
@@ -133,5 +147,5 @@ You can think of a unbuffered channel like a phone call.
 A buffered channel is like adding a voice mail.
 
 - Someone that calls you doesn't have to wait for you to finish your call
-- You can listen to one voice mail after another at your own speed 
+- You can listen to one voice mail after another at your own speed
 

@@ -13,3 +13,46 @@ Security Eng Intern, Shopify
 - Infrastructure
 - Backend API
 - CLI tools
+
+* Concurrency vs Parallelism
+
+Concurrency:
+
+- The composition of independently executing tasks.
+- It's about structuring the problem.
+
+Parallelism:
+
+- The execution of tasks at the same time. 
+- It's about executing the problem.
+
+Concurrency is not parallelism, but it does enables parallelism.
+
+* Example Problem
+
+This little gopher need to burn these Node.js books.
+
+- Run to book pile
+- Pick up books
+- Run to fire
+- Burn
+
+.image images/gophersimple1.jpg
+
+* Trying parallelism without concurrent design
+
+- Two gophers doing the same set of tasks
+
+.image images/gophersimple2.jpg
+
+Sadly they are bottlenecked at the book pile and fire.
+
+* Concurrent Design 
+
+- Break down the problem
+- Add staging area of books
+- Now the two gophers can get shit done at scale!
+
+.image images/gophercomplex3.jpg
+
+Notice how this concurrent design allowed for better parallelism.

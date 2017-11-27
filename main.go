@@ -2,99 +2,138 @@ package main
 
 import (
 	"fmt"
+	"strings"
+	"time"
 )
 
-type Fetcher interface {
-	// Fetch returns the body of URL and
-	// a slice of URLs found on that page.
-	Fetch(url string) (body string, urls []string, err error)
-}
+func WordCount(s string) map[string]int {
+	count := make(map[string]int)
 
-type Result struct {
-	url  string
-	body string
-}
-
-// Crawl uses fetcher to recursively crawl
-// pages starting with url, to a maximum of depth.
-func Crawl(results chan Result, url string, depth int, fetcher Fetcher) {
-	// TODO: Don't fetch the same URL twice.
-	if depth <= 0 {
-		return
+	for _, char := range strings.Fields(s) {
+		count[char]++
 	}
 
-	body, urls, err := fetcher.Fetch(url)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	results <- Result{
-		url:  url,
-		body: body,
-	}
-
-	for _, u := range urls {
-		go Crawl(results, u, depth-1, fetcher)
-	}
-
-	return
+	return count
 }
 
 func main() {
-	results := make(chan Result)
-	go Crawl(results, "http://golang.org/", 4, fetcher)
-
-	for result := range results {
-		fmt.Println(result)
+	start := time.Now()
+	pharses := []string{
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
+		"Hello my name is Jeff",
 	}
+
+	//fast(pharses)
+	slow(pharses)
+
+	fmt.Println(time.Since(start))
+
 }
 
-// fakeFetcher is Fetcher that returns canned results.
-type fakeFetcher map[string]*fakeResult
+func slow(pharses []string) {
+	count := make(map[string]int)
 
-type fakeResult struct {
-	body string
-	urls []string
-}
-
-func (f fakeFetcher) Fetch(url string) (string, []string, error) {
-	if res, ok := f[url]; ok {
-		return res.body, res.urls, nil
+	for _, pharse := range pharses {
+		for k, v := range WordCount(pharse) {
+			count[k] += v
+		}
 	}
-	return "", nil, fmt.Errorf("not found: %s", url)
+
+	fmt.Println(count)
 }
 
-// fetcher is a populated fakeFetcher.
-var fetcher = fakeFetcher{
-	"http://golang.org/": &fakeResult{
-		"The Go Programming Language",
-		[]string{
-			"http://golang.org/pkg/",
-			"http://golang.org/cmd/",
-		},
-	},
-	"http://golang.org/pkg/": &fakeResult{
-		"Packages",
-		[]string{
-			"http://golang.org/",
-			"http://golang.org/cmd/",
-			"http://golang.org/pkg/fmt/",
-			"http://golang.org/pkg/os/",
-		},
-	},
-	"http://golang.org/pkg/fmt/": &fakeResult{
-		"Package fmt",
-		[]string{
-			"http://golang.org/",
-			"http://golang.org/pkg/",
-		},
-	},
-	"http://golang.org/pkg/os/": &fakeResult{
-		"Package os",
-		[]string{
-			"http://golang.org/",
-			"http://golang.org/pkg/",
-		},
-	},
+func fast(pharses []string) {
+	count := make(map[string]int)
+	ch := make(chan map[string]int)
+
+	for _, pharse := range pharses {
+		go func() {
+			ch <- WordCount(pharse)
+		}()
+	}
+
+	for i := 0; i < len(pharses); i++ {
+		res := <-ch
+		for k, v := range res {
+			count[k] += v
+		}
+	}
+
+	fmt.Println(count)
 }

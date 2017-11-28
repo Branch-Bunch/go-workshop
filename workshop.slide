@@ -3,13 +3,15 @@ Concurrency With Go
 
 Jacky Chiu
 Data Eng Intern, Shopify
+https://github.com/JackyChiu
 
 Kirin Rastogi
 Privacy & Trust Intern, Shopify
+https://github.com/KirinRastogi
 
 * Why go?
 
-"Go will be the server language of the future" - _Tobias_ _Lutke_, _Shopify_
+"Go will be the server language of the future" - _Tobias_ _Lutke_, _Shopify_ _CEO_
 
 - Moore's Law is failing
 # Transistors double every ~18 months
@@ -40,7 +42,7 @@ Privacy & Trust Intern, Shopify
 - Familiar Semantics
 # no ptr arith
 # no implicit num conversions, array bounds always checked
-# no free or malloc
+# no free or malloc, garbage collected
 - Composition not Inheritance
 # less side affects, easy to navigate
 
@@ -51,15 +53,16 @@ Privacy & Trust Intern, Shopify
 - Backend API
 - CLI tools
 
-* Executing Go
+* Executing Go & Project Structure
 
 - go run
+# runs your code
 - go build
-
-* Project Structure & Environment
-
+# builds your code to an executable
+- gopath is used to unify the go environment
   export GOPATH=$HOME
-
+  go get github.com/golang/go
+  # Will populate ~/src/github.com/golang/go
 - Local Packages
 # allow for single, easy to manage workspace
 - Remote Packages

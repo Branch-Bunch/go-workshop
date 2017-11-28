@@ -11,6 +11,7 @@ import (
 
 type Result string
 
+// START0 OMIT
 func Google(query string) []Result {
 	var results []Result
 	resultsChan := make(chan Result)
@@ -25,6 +26,8 @@ func Google(query string) []Result {
 
 	return results
 }
+
+// STOP0 OMIT
 
 var (
 	Web   = fakeSearch("web")

@@ -221,7 +221,7 @@ The Google function takes a query and returns a slice of Results (which are just
 
 Google invokes Web, Image, and Video searches one after another, appending them to the results.
 
-.play google.go /func.Google/,/}/
+.play google.go /START0/,/STOP0/
 
 * Faster Google Search 
 
@@ -230,4 +230,4 @@ The goroutines send the results down the channel.
 
 We receive on the channel and update our final result.
 
-.play google_concurrent.go /func.Google/,/}/
+.play google_concurrent.go /START0/,/STOP0/

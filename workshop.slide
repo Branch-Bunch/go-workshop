@@ -5,11 +5,44 @@ Jacky Chiu
 Data Eng Intern, Shopify
 
 Kirin Rastogi
-Security Eng Intern, Shopify
+Privacy & Trust Intern, Shopify
 
-* Intro To Go
+* Why go?
 
-.image images/gopher.png
+"Go will be the server language of the future" - _Tobias_ _Lutke_, _Shopify_
+
+- Moore's Law is failing
+# Transistors double every ~18 months
+# single threaded performance is getting worse, while cores goes up
+- Transistors are small & expensive
+# They are so small, they are going to be affected by quantum tunnelling
+# Too expensive
+- Concurrent code is the solution
+# Instructions that can execute concurrently will be able to scale
+# The code makes use of the multiple cores, and works in multiple threads
+- Goroutines are a lightweight way of executing concurrent go code
+# A goroutine is not a thread
+# A goroutine can be thought of as a lightweight thread
+# In reality they are multiplexed and balanced between threads for optimization,
+# but you don't need to worry about that since they are abstracted
+# segmented stack that grows when needed
+# mutex locking is no longer the only solution for sharing data because of channels
+.image images/moore_law.png
+#.caption _Moore's_ _Law_ source: [[https://medium.com/@kevalpatel2106/why-should-you-learn-go-f607681fad65][Keval Patel]]
+
+* Go at Scale
+
+- Fast Builds
+- Controlled Dependency Management
+# C++ reads about 2000 extra bytes of dependency code for every source byte
+# because of the way the cycle it imports in works
+- One Correct Way of Doing Things
+- Familiar Semantics
+# no ptr arith
+# no implicit num conversions, array bounds always checked
+# no free or malloc
+- Composition not Inheritance
+# less side affects, easy to navigate
 
 * Areas of Use
 
@@ -17,6 +50,23 @@ Security Eng Intern, Shopify
 - Infrastructure
 - Backend API
 - CLI tools
+
+* Executing Go
+
+- go run
+- go build
+
+* Project Structure & Environment
+
+  export GOPATH=$HOME
+
+- Local Packages
+# allow for single, easy to manage workspace
+- Remote Packages
+# allow for easy download and importation
+
+* Language Basics
+.link https://tour.golang.org/moretypes/23
 
 * Concurrency vs Parallelism
 

@@ -69,7 +69,7 @@ https://github.com/KirinRastogi
 # allow for easy download and importation
 
 * Language Basics
-.link https://tour.golang.org/moretypes/23
+.link https://tour.golang.org/moretypes/19
 
 * Concurrency vs Parallelism
 

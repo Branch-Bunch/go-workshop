@@ -45,6 +45,8 @@ https://github.com/KirinRastogi
 # no free or malloc, garbage collected
 - Composition not Inheritance
 # less side affects, easy to navigate
+- Zero values handled well
+# we will see an example of this soon
 
 * Areas of Use
 

@@ -43,9 +43,9 @@ https://github.com/KirinRastogi
 # no ptr arith
 # no implicit num conversions, array bounds always checked
 # no free or malloc, garbage collected
-- Composition not Inheritance
+- Composition Not Inheritance
 # less side affects, easy to navigate
-- Zero values handled well
+- Zero Values Handled Well
 # we will see an example of this soon
 
 * Areas of Use

@@ -38,11 +38,13 @@ https://github.com/KirinRastogi
 - Controlled Dependency Management
 # C++ reads about 2000 extra bytes of dependency code for every source byte
 # because of the way the cycle it imports in works
+# go uses packages with explicit imports
 - One Correct Way of Doing Things
 - Familiar Semantics
-# no ptr arith
-# no implicit num conversions, array bounds always checked
-# no free or malloc, garbage collected
+# familiar if you know C
+# uses structs
+# make keyword to allocate, or {}
+# garbage collected
 - Composition Not Inheritance
 # less side affects, easy to navigate
 - Zero Values Handled Well

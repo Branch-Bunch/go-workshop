@@ -173,8 +173,10 @@ Use channels to:
     // init var in main goroutine 1
     resultChan := make(chan int)
 
-    // send in goroutine 2
-    resultChan <- 5
+    go func() {
+      // send in goroutine 2
+      resultChan <- 5
+    }()
 
     // receive in goroutine 1
     result := <- resultChan
